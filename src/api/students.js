@@ -2,7 +2,9 @@ import request, { getData } from './index';
 
 export const getStudents = () => request.get('/students').then(getData);
 
-export const createStudent = (data) =>
+export const getStudent = id => request.get(`/students/${id}`).then(getData);
+
+export const createStudent = data =>
   request.post(`/students`, data).then(getData);
 
 export const updateStudent = (id, data) =>
