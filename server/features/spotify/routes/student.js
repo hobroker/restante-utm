@@ -1,43 +1,29 @@
 import { SPOTIFY } from '../constants';
 import { del, get, patch, post } from '../../express/methods';
+import {
+  createCRUD,
+  createOne,
+  findAll,
+  findOne,
+  removeOne,
+  updateOne,
+} from '../../express/crud';
 
-const studentList = ({ mongo: { Student } }) => Student.find();
+const STUDENT_MODEL_NAME = 'Student';
 
-const studentOne = (
-  { mongo: { Student } },
-  {
-    req: {
-      params: { _id },
-    },
-  },
-) => Student.findOne({ _id });
+const allStudents = findAll(STUDENT_MODEL_NAME);
 
-const createStudent = ({ mongo: { Student } }, { req: { body } }) => {
-  Student.create(body);
-};
+const oneStudent = findOne(STUDENT_MODEL_NAME);
 
-const updateStudent = (
-  { mongo: { Student } },
-  {
-    req: {
-      body,
-      params: { _id },
-    },
-  },
-) => Student.findOneAndUpdate({ _id }, body);
+const createStudent = createOne(STUDENT_MODEL_NAME);
 
-const deleteStudent = (
-  { mongo: { Student } },
-  {
-    req: {
-      params: { _id },
-    },
-  },
-) => Student.remove({ _id });
+const updateStudent = updateOne(STUDENT_MODEL_NAME);
+
+const deleteStudent = removeOne(STUDENT_MODEL_NAME);
 
 export default {
   [SPOTIFY]: {
-    '/': [get(studentList), post(createStudent)],
-    '/:_id': [get(studentOne), patch(updateStudent), del(deleteStudent)],
+    '/': [get(allStudents), post(createStudent)],
+    '/:_id': [get(oneStudent), patch(updateStudent), del(deleteStudent)],
   },
 };
