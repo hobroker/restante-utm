@@ -1,7 +1,12 @@
 import { del, get, patch, post } from '../../express/methods';
 import { createCRUD } from '../../express/crud';
 
-const { all, one, create, update, remove } = createCRUD('Situation');
+const { one, create, update, remove } = createCRUD('Situation');
+
+const all = ({ mongo: { Situation } }) =>
+  Situation.find()
+    .populate('studentId')
+    .populate('subjectId');
 
 export default {
   situations: {

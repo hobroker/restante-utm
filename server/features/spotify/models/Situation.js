@@ -8,7 +8,7 @@ export default {
   },
   subjectId: {
     type: Schema.Types.ObjectId,
-    ref: 'Subiect',
+    ref: 'Subject',
     required: true,
   },
   stare: {

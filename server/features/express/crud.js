@@ -1,7 +1,7 @@
-import { applyTo, path } from 'ramda';
+import { applySpec, path } from 'ramda';
 import { MONGO } from '../mongo/constants';
 
-export const findAll = model => (oxi, { req }) => {
+export const findAll = model => oxi => {
   const Model = path([MONGO, model], oxi);
 
   return Model.find();
@@ -31,18 +31,10 @@ export const updateOne = model => (oxi, { req: { body, params } }) => {
   return Model.findOneAndUpdate(params, body);
 };
 
-export const createCRUD = model => {
-  const all = findAll(model);
-  const one = findOne(model);
-  const create = createOne(model);
-  const update = updateOne(model);
-  const remove = removeOne(model);
-
-  return {
-    all,
-    one,
-    create,
-    update,
-    remove,
-  };
-};
+export const createCRUD = applySpec({
+  all: findAll,
+  one: findOne,
+  create: createOne,
+  update: updateOne,
+  remove: removeOne,
+});
