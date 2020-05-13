@@ -1,13 +1,15 @@
 import { always } from 'ramda';
 import { SPOTIFY } from '../constants';
-import { get } from '../../express/methods';
+import { get, post } from '../../express/methods';
 
-const student = always('hello');
+const studentList = ({ mongo: { Student } }) => Student.find();
+
+const createStudent = ({ mongo: { Student } }, { req: { body } }) => {
+  Student.create(body);
+};
 
 export default {
   [SPOTIFY]: {
-    auth: {
-      '/': get(student),
-    },
+    '/': [get(studentList), post(createStudent)],
   },
 };
