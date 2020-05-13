@@ -31,5 +31,18 @@ export const updateOne = model => (oxi, { req: { body, params } }) => {
   return Model.findOneAndUpdate(params, body);
 };
 
-export const createCRUD = model =>
-  [createOne, findOne, updateOne, removeOne, findAll].map(applyTo(model));
+export const createCRUD = model => {
+  const all = findAll(model);
+  const one = findOne(model);
+  const create = createOne(model);
+  const update = updateOne(model);
+  const remove = removeOne(model);
+
+  return {
+    all,
+    one,
+    create,
+    update,
+    remove,
+  };
+};
