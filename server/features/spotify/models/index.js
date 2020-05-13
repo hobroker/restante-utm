@@ -1,5 +1,5 @@
 import * as Student from './Student';
-import * as Subiect from './Subiect';
+import * as Subject from './Subject';
 import * as Restanta from './Restanta';
 
-export { Student, Subiect, Restanta };
+export { Student, Subject, Restanta };

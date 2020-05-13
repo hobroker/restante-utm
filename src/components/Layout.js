@@ -10,7 +10,7 @@ import List from '@material-ui/core/List';
 import ListItemText from '@material-ui/core/ListItemText';
 import { css } from 'emotion';
 import { Link } from 'react-router-dom';
-import { STUDENTS_LIST_PAGE, TITLE } from '../constants/pages';
+import { STUDENTS_LIST_PAGE, SUBJECTS_LIST_PAGE, TITLE } from '../constants/pages';
 
 const appBarStyle = css`
   left: 240px;
@@ -55,6 +55,9 @@ const Layout = ({ children }) => (
             <List>
               <ListItem button component={Link} to="/">
                 <ListItemText primary={STUDENTS_LIST_PAGE} />
+              </ListItem>
+              <ListItem button component={Link} to="/subjects">
+                <ListItemText primary={SUBJECTS_LIST_PAGE} />
               </ListItem>
             </List>
           </div>

@@ -5,7 +5,7 @@ export default {
     type: String,
     required: true,
   },
-  puncte: {
+  points: {
     type: Number,
     required: false,
   },
