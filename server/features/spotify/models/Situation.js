@@ -6,7 +6,7 @@ export default {
     ref: 'Student',
     required: true,
   },
-  subiectId: {
+  subjectId: {
     type: Schema.Types.ObjectId,
     ref: 'Subiect',
     required: true,

@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Layout from './components/Layout';
-import HomePage from './pages/HomePage';
+import Students from './pages/StudentsList';
 import CreateStudent from './pages/CreateStudent';
 import EditStudent from './pages/EditStudent';
 import Subjects from './pages/Subjects';
 import CreateSubject from './pages/CreateSubject';
 import EditSubject from './pages/EditSubject';
+import CreateSituation from './pages/CreateSituation';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,6 +21,10 @@ ReactDOM.render(
           <Route path="/student">
             <CreateStudent />
           </Route>
+          <Route path="/students">
+            <Students />
+          </Route>
+
           <Route path="/subjects">
             <Subjects />
           </Route>
@@ -29,8 +34,13 @@ ReactDOM.render(
           <Route path="/subject">
             <CreateSubject />
           </Route>
+
+          <Route path="/situation">
+            <CreateSituation />
+          </Route>
+
           <Route path="/">
-            <HomePage />
+            <Redirect to="/students" />
           </Route>
         </Switch>
       </Layout>

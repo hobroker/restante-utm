@@ -17,7 +17,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import useApiData from '../hooks/useApiData';
 
-const HomePage = () => {
+const Students = () => {
   const [data, setData] = useApiData(getStudents(), []);
 
   const onRemoveStudent = id => () => {
@@ -80,4 +80,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Students;

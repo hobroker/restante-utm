@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Form from './Form';
 import React from 'react';
 
-const CreatePageWrapper = ({ title, fields, apiCreate, redirectTo }) => {
+const CreatePageWrapper = ({ title, fields, apiCreate, redirectTo, data }) => {
   const history = useHistory();
   const onSubmit = values => {
     apiCreate(values).then(() => {
@@ -17,7 +17,7 @@ const CreatePageWrapper = ({ title, fields, apiCreate, redirectTo }) => {
       <Typography variant="h4" gutterBottom>
         {title}
       </Typography>
-      <Form fields={fields} onSubmit={onSubmit} />
+      <Form fields={fields} onSubmit={onSubmit} data={data} />
     </Container>
   );
 };

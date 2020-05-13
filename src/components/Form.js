@@ -2,8 +2,9 @@ import TextField from '@material-ui/core/TextField';
 import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
+import MenuItem from '@material-ui/core/MenuItem';
 
-const Form = ({ fields, values, onSubmit }) => {
+const Form = ({ fields, values, onSubmit, data }) => {
   const initialState = fields.reduce(
     (acc, { name }) => ({
       ...acc,
@@ -11,11 +12,11 @@ const Form = ({ fields, values, onSubmit }) => {
     }),
     {},
   );
-  const [data, updateData] = useState(initialState);
+  const [localValues, updateData] = useState(initialState);
   const [errors, setErrors] = useState({});
 
   const submit = () => {
-    const newErrors = Object.entries(data)
+    const newErrors = Object.entries(localValues)
       .filter(([, value]) => !value)
       .reduce(
         (acc, [key]) => ({
@@ -33,30 +34,41 @@ const Form = ({ fields, values, onSubmit }) => {
 
     setErrors({});
 
-    return onSubmit(data);
+    return onSubmit(localValues);
   };
 
   const setData = (key, value) =>
     updateData({
-      ...data,
+      ...localValues,
       [key]: value,
     });
 
   const onTextFieldChange = key => ({ target: { value } }) =>
     setData(key, value);
 
+  console.log('data', data);
+
   return (
     <form>
-      {fields.map(({ name, label }) => (
+      {fields.map(({ name, label, type, dataKey }) => (
         <FormControl key={name} fullWidth margin="normal" required>
           <TextField
             error={!!errors[name]}
             helperText={errors[name]}
             label={label}
             variant="filled"
-            value={data[name] || ''}
+            value={localValues[name] || ''}
+            type={type}
             onChange={onTextFieldChange(name)}
-          />
+            select={type === 'select'}
+          >
+            {type === 'select' &&
+              data[dataKey].map(({ label, value }) => (
+                <MenuItem key={value} value={value}>
+                  {label}
+                </MenuItem>
+              ))}
+          </TextField>
         </FormControl>
       ))}
       <FormControl margin="normal">

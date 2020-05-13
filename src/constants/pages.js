@@ -7,3 +7,7 @@ export const STUDENTS_EDIT_PAGE = 'Editare student';
 export const SUBJECTS_LIST_PAGE = 'Lista subiectelor';
 export const SUBJECTS_CREATE_PAGE = 'Creare subiect';
 export const SUBJECTS_EDIT_PAGE = 'Editare subiect';
+
+export const SITUATIONS_LIST_PAGE = 'Lista restanțelor';
+export const SITUATIONS_CREATE_PAGE = 'Creare restanță';
+export const SITUATIONS_EDIT_PAGE = 'Editare restanță';
