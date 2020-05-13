@@ -1,0 +1,30 @@
+{
+  "extends": ["airbnb-base", "plugin:prettier/recommended", "react-app"],
+  "env": {
+    "jest": true,
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "newline-before-return": 2,
+    "import/prefer-default-export": 0,
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          ["sibling", "parent"],
+          "index"
+        ]
+      }
+    ]
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 10,
+    "esversion": 6
+  }
+}
