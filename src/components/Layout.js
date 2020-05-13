@@ -9,6 +9,8 @@ import ListItem from '@material-ui/core/ListItem';
 import List from '@material-ui/core/List';
 import ListItemText from '@material-ui/core/ListItemText';
 import { css } from 'emotion';
+import { Link } from 'react-router-dom';
+import { STUDENTS_LIST, TITLE } from '../constants/pages';
 
 const appBarStyle = css`
   left: 240px;
@@ -20,40 +22,47 @@ const drawerStyle = css`
 
 const mainStyle = css`
   padding-left: 255px;
+  padding-right: 15px;
   padding-top: 79px;
+  margin-bottom: 200px;
 `;
 
-const Layout = ({ children }) => {
-  const drawer = (
-    <div className={drawerStyle}>
-      <List>
-        <ListItem button>
-          <ListItemText primary="Test" />
-        </ListItem>
-      </List>
-    </div>
-  );
+const titleStyle = css`
+  color: white;
+  text-decoration: none;
+`;
 
-  return (
-    <StylesProvider injectFirst>
-      <div>
-        <CssBaseline />
-        <AppBar position="fixed" className={appBarStyle}>
-          <Toolbar>
-            <Typography variant="h6" noWrap>
-              Responsive drawer
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <nav aria-label="mailbox folders">
-          <Drawer variant="permanent" open>
-            {drawer}
-          </Drawer>
-        </nav>
-        <main className={mainStyle}>{children}</main>
-      </div>
-    </StylesProvider>
-  );
-};
+const Layout = ({ children }) => (
+  <StylesProvider injectFirst>
+    <div>
+      <CssBaseline />
+      <AppBar position="fixed" className={appBarStyle}>
+        <Toolbar>
+          <Typography
+            variant="h6"
+            noWrap
+            component={Link}
+            to="/"
+            className={titleStyle}
+          >
+            {TITLE}
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <nav aria-label="mailbox folders">
+        <Drawer variant="permanent" open className={drawerStyle}>
+          <div className={drawerStyle}>
+            <List>
+              <ListItem button component={Link} to="/">
+                <ListItemText primary={STUDENTS_LIST} />
+              </ListItem>
+            </List>
+          </div>
+        </Drawer>
+      </nav>
+      <main className={mainStyle}>{children}</main>
+    </div>
+  </StylesProvider>
+);
 
 export default Layout;
