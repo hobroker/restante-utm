@@ -13,7 +13,7 @@ const config = {
       prefix: '/api',
     },
     [MONGO]: {
-      connectionString: 'mongodb://lucy.hobroker.com:27300/restante'
+      connectionString: 'mongodb://root:root@lucy.hobroker.com:27300/admin'
     }
   },
 };
