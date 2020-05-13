@@ -1,4 +1,5 @@
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import { curry, map, pipe } from 'ramda';
 import { debugIt } from '../../../util/debug';
 
@@ -12,7 +13,7 @@ const morganMiddleware = morgan((tokens, req, res) =>
   )(['method', 'url', 'status']),
 );
 
-const defaultMiddlewares = [bodyParser.json(), morganMiddleware];
+const defaultMiddlewares = [cors(), bodyParser.json(), morganMiddleware];
 
 const useMiddlewares = curry((middlewares, app) => {
   defaultMiddlewares
