@@ -1,7 +1,7 @@
 import { pipe, prop } from 'ramda';
-import { SPOTIFY } from './constants';
+import { STUDENTS } from './constants';
 import { getConfigFeatures } from '../../accessors/config';
 
-export const getSpotify = prop(SPOTIFY);
+export const getSpotify = prop(STUDENTS);
 
 export const getSpotifyConfig = pipe(getConfigFeatures, getSpotify);

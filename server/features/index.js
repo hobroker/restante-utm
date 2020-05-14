@@ -1,6 +1,6 @@
 import Mongo from './mongo';
 import Express from './express';
-import Spotify from './spotify';
+import Students from './students';
 import Cli from './cli';
 import Death from './death';
 
@@ -9,5 +9,5 @@ export default [
   Cli,
   Mongo,
   Express,
-  Spotify,
+  Students,
 ];
