@@ -62,7 +62,7 @@ const Layout = ({ children }) => (
               <ListItem button component={Link} to="/">
                 <ListItemText primary={HOME_PAGE} />
               </ListItem>
-              <ListItem button component={Link} to="/">
+              <ListItem button component={Link} to="/students">
                 <ListItemText primary={STUDENTS_LIST_PAGE} />
               </ListItem>
               <ListItem button component={Link} to="/subjects">
