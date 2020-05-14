@@ -1,5 +1,6 @@
 import http from 'http';
 import express from 'express';
+import path from 'path';
 import { call, pipe } from 'ramda';
 import { debugIt } from '../../util/debug';
 import { whenDying } from '../death/helpers';
@@ -17,6 +18,10 @@ const Express = async (oxi, features) => {
   const createApp = pipe(call, useMiddlewares([]), useRoutes(routes));
 
   const app = createApp(express);
+  const publicPath = path.join(__dirname, '../../../build');
+  app.use(express.static(publicPath)).get('/*', function(req, res) {
+    res.sendFile(path.join(publicPath, 'index.html'));
+  });
   const server = http.createServer(app);
 
   await startServer(port, server);
@@ -37,4 +42,4 @@ const Express = async (oxi, features) => {
   };
 };
 
-export default pipe(ensureDependencies([ isWebApp ]))(Express);
+export default pipe(ensureDependencies([isWebApp]))(Express);
