@@ -12,4 +12,5 @@ export const SUBJECT_FIELDS = [
 export const SITUATION_FIELDS = [
   { name: 'studentId', label: 'Student', type: 'select', dataKey: 'students' },
   { name: 'subjectId', label: 'Subiect', type: 'select', dataKey: 'subjects' },
+  { name: 'state', label: 'Stare', type: 'text' },
 ];

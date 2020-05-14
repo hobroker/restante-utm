@@ -46,8 +46,6 @@ const Form = ({ fields, values, onSubmit, data }) => {
   const onTextFieldChange = key => ({ target: { value } }) =>
     setData(key, value);
 
-  console.log('data', data);
-
   return (
     <form>
       {fields.map(({ name, label, type, dataKey }) => (
@@ -63,6 +61,7 @@ const Form = ({ fields, values, onSubmit, data }) => {
             select={type === 'select'}
           >
             {type === 'select' &&
+              data[dataKey] &&
               data[dataKey].map(({ label, value }) => (
                 <MenuItem key={value} value={value}>
                   {label}
@@ -82,6 +81,7 @@ const Form = ({ fields, values, onSubmit, data }) => {
 
 Form.defaultProps = {
   values: {},
+  data: {},
 };
 
 export default Form;

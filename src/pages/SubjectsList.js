@@ -17,7 +17,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import useApiData from '../hooks/useApiData';
 import { deleteSubject, getSubjects } from '../api/subjects';
 
-const Subjects = () => {
+const SubjectsList = () => {
   const [data, setData] = useApiData(getSubjects(), []);
 
   const onRemoveSubject = id => () => {
@@ -56,7 +56,7 @@ const Subjects = () => {
           </TableHead>
           <TableBody>
             {data.map(row => (
-              <TableRow key={row.name}>
+              <TableRow key={row._id}>
                 <TableCell component="th" scope="row">
                   {row.name}
                 </TableCell>
@@ -78,4 +78,4 @@ const Subjects = () => {
   );
 };
 
-export default Subjects;
+export default SubjectsList;

@@ -5,10 +5,17 @@ import Form from './Form';
 import React from 'react';
 import useApiData from '../hooks/useApiData';
 
-const EditPageWrapper = ({ title, fields, apiGet, apiUpdate, redirectTo }) => {
+const EditPageWrapper = ({
+  title,
+  fields,
+  apiGet,
+  apiUpdate,
+  redirectTo,
+  data,
+}) => {
   const history = useHistory();
   const { id } = useParams();
-  const [data] = useApiData(apiGet(id), null);
+  const [initialValues] = useApiData(apiGet(id), null);
   const onSubmit = values => {
     apiUpdate(id, values).then(() => {
       history.push(redirectTo);
@@ -20,7 +27,14 @@ const EditPageWrapper = ({ title, fields, apiGet, apiUpdate, redirectTo }) => {
       <Typography variant="h4" gutterBottom>
         {title}
       </Typography>
-      {data && <Form fields={fields} values={data} onSubmit={onSubmit} />}
+      {initialValues && (
+        <Form
+          fields={fields}
+          values={initialValues}
+          onSubmit={onSubmit}
+          data={data}
+        />
+      )}
     </Container>
   );
 };

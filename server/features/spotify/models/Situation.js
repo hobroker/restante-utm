@@ -11,7 +11,7 @@ export default {
     ref: 'Subject',
     required: true,
   },
-  stare: {
+  state: {
     type: String,
     required: false,
   },
