@@ -1,5 +1,7 @@
 export const TITLE = 'Evidența restanțierilor la facultate';
 
+export const HOME_PAGE = 'Pagina principală';
+
 export const STUDENTS_LIST_PAGE = 'Lista studenților';
 export const STUDENTS_CREATE_PAGE = 'Creare student';
 export const STUDENTS_EDIT_PAGE = 'Editare student';

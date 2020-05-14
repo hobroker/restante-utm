@@ -1,11 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Layout from './components/Layout';
 import Students from './pages/StudentsList';
 import CreateStudent from './pages/CreateStudent';
@@ -16,6 +11,7 @@ import EditSubject from './pages/EditSubject';
 import CreateSituation from './pages/CreateSituation';
 import SituationsList from './pages/SituationsList';
 import EditSituation from './pages/EditSituation';
+import Home from './pages/Home';
 
 ReactDOM.render(
   <Router>
@@ -52,7 +48,7 @@ ReactDOM.render(
         </Route>
 
         <Route path="/">
-          <Redirect to="/students" />
+          <Home />
         </Route>
       </Switch>
     </Layout>

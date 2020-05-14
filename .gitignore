@@ -1,7 +1,5 @@
 !/**/.gitkeep
 **/.DS_Store
 node_modules
-coverage
 .env
-.cache
-key
+build

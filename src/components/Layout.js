@@ -11,6 +11,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { css } from 'emotion';
 import { Link } from 'react-router-dom';
 import {
+  HOME_PAGE,
   SITUATIONS_LIST_PAGE,
   STUDENTS_LIST_PAGE,
   SUBJECTS_LIST_PAGE,
@@ -58,6 +59,9 @@ const Layout = ({ children }) => (
         <Drawer variant="permanent" open className={drawerStyle}>
           <div className={drawerStyle}>
             <List>
+              <ListItem button component={Link} to="/">
+                <ListItemText primary={HOME_PAGE} />
+              </ListItem>
               <ListItem button component={Link} to="/">
                 <ListItemText primary={STUDENTS_LIST_PAGE} />
               </ListItem>

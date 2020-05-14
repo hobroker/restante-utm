@@ -1,12 +1,13 @@
 import { del, get, patch, post } from '../../express/methods';
-import { createCRUD } from '../../express/crud';
+import { createCRUD, findAll } from '../../express/crud';
+import { compose } from 'ramda';
 
 const { one, create, update, remove } = createCRUD('Situation');
 
-const all = ({ mongo: { Situation } }) =>
-  Situation.find()
-    .populate('studentId')
-    .populate('subjectId');
+const all = compose(
+  promise => promise.populate(['studentId', 'subjectId']),
+  findAll('Situation'),
+);
 
 export default {
   situations: {
