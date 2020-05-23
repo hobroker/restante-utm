@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import useMountEffect from './useMountEffect';
 import { identity } from 'ramda';
+import useMountEffect from './useMountEffect';
 
 const useApiData = (promise, initialState = null, modify = identity) => {
   const [data, setData] = useState(initialState);
 
   useMountEffect(() => {
-    promise.then(modify).then(data => {
-      setData(data);
+    promise.then(modify).then(response => {
+      setData(response);
     });
   });
 

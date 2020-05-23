@@ -1,5 +1,4 @@
 import React from 'react';
-import { deleteStudent, getStudents } from '../api/students';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import TableHead from '@material-ui/core/TableHead';
@@ -11,10 +10,11 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import { Link } from 'react-router-dom';
-import { STUDENTS_LIST_PAGE } from '../constants/pages';
 import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
+import { STUDENTS_LIST_PAGE } from '../constants/pages';
+import { deleteStudent, getStudents } from '../api/students';
 import useApiData from '../hooks/useApiData';
 
 const Students = () => {

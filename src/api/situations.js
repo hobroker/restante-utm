@@ -2,7 +2,8 @@ import request, { getData } from './index';
 
 export const getSituations = () => request.get('/situations').then(getData);
 
-export const getSituation = id => request.get(`/situations/${id}`).then(getData);
+export const getSituation = id =>
+  request.get(`/situations/${id}`).then(getData);
 
 export const createSituation = data =>
   request.post(`/situations`, data).then(getData);

@@ -1,8 +1,8 @@
 import { useHistory } from 'react-router-dom';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-import Form from './Form';
 import React from 'react';
+import Form from './Form';
 
 const CreatePageWrapper = ({ title, fields, apiCreate, redirectTo, data }) => {
   const history = useHistory();

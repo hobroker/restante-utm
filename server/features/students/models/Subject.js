@@ -1,5 +1,3 @@
-import { Schema } from 'mongoose';
-
 export default {
   name: {
     type: String,

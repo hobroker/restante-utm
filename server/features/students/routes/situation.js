@@ -1,6 +1,6 @@
+import { compose } from 'ramda';
 import { del, get, patch, post } from '../../express/methods';
 import { createCRUD, findAll } from '../../express/crud';
-import { compose } from 'ramda';
 
 const { one, create, update, remove } = createCRUD('Situation');
 

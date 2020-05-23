@@ -4,10 +4,4 @@ import Students from './students';
 import Cli from './cli';
 import Death from './death';
 
-export default [
-  Death,
-  Cli,
-  Mongo,
-  Express,
-  Students,
-];
+export default [Death, Cli, Mongo, Express, Students];

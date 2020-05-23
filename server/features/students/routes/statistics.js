@@ -1,5 +1,4 @@
-import { del, get, patch, post } from '../../express/methods';
-import { createCRUD } from '../../express/crud';
+import { get } from '../../express/methods';
 
 const count = async ({ mongo: { Student, Subject, Situation } }) => {
   const [students, subjects, situations] = await Promise.all([

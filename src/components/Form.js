@@ -29,7 +29,7 @@ const Form = ({ fields, values, onSubmit, data }) => {
     if (Object.keys(newErrors).length) {
       setErrors(newErrors);
 
-      return;
+      return null;
     }
 
     setErrors({});
@@ -62,9 +62,9 @@ const Form = ({ fields, values, onSubmit, data }) => {
           >
             {type === 'select' &&
               data[dataKey] &&
-              data[dataKey].map(({ label, value }) => (
+              data[dataKey].map(({ label: text, value }) => (
                 <MenuItem key={value} value={value}>
-                  {label}
+                  {text}
                 </MenuItem>
               ))}
           </TextField>
