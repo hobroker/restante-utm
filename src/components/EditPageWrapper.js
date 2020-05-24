@@ -15,7 +15,7 @@ const EditPageWrapper = ({
 }) => {
   const history = useHistory();
   const { id } = useParams();
-  const [initialValues] = useApiData(apiGet(id), null);
+  const [initialValues] = useApiData(apiGet, [id], null);
   const onSubmit = values => {
     apiUpdate(id, values).then(() => {
       history.push(redirectTo);

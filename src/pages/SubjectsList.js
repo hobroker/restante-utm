@@ -18,7 +18,7 @@ import useApiData from '../hooks/useApiData';
 import { deleteSubject, getSubjects } from '../api/subjects';
 
 const SubjectsList = () => {
-  const [data, setData] = useApiData(getSubjects(), []);
+  const [data, setData] = useApiData(getSubjects, [], []);
 
   const onRemoveSubject = id => () => {
     if (!window.confirm('Șterge subiectul?')) {

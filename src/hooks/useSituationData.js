@@ -5,8 +5,8 @@ import { getSubjects } from '../api/subjects';
 
 const useSituationData = () => {
   const modifier = map(applySpec({ value: prop('_id'), label: prop('name') }));
-  const [students] = useApiData(getStudents(), [], modifier);
-  const [subjects] = useApiData(getSubjects(), [], modifier);
+  const [students] = useApiData(getStudents, [], [], modifier);
+  const [subjects] = useApiData(getSubjects, [], [], modifier);
 
   return { students, subjects };
 };

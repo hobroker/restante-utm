@@ -25,7 +25,7 @@ const buttonStyle = css`
 `;
 
 const Home = () => {
-  const [data] = useApiData(getCountAll(), []);
+  const [data] = useApiData(getCountAll, [], []);
 
   return (
     <div className={wrapperStyle}>

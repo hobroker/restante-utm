@@ -18,7 +18,7 @@ import { deleteStudent, getStudents } from '../api/students';
 import useApiData from '../hooks/useApiData';
 
 const Students = () => {
-  const [data, setData] = useApiData(getStudents(), []);
+  const [data, setData] = useApiData(getStudents, [], []);
 
   const onRemoveStudent = id => () => {
     if (!window.confirm('Șterge studentul?')) {

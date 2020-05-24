@@ -18,7 +18,7 @@ import useApiData from '../hooks/useApiData';
 import { deleteSituation, getSituations } from '../api/situations';
 
 const SituationsList = () => {
-  const [data, setData] = useApiData(getSituations(), []);
+  const [data, setData] = useApiData(getSituations, [], []);
 
   const onRemoveSituation = id => () => {
     if (!window.confirm('Șterge restanța?')) {
